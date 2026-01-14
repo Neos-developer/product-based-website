@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmol Masala | The Essence of Pure Taste</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS Custom Configuration (MUST COME BEFORE THE TAILWIND SCRIPT) -->
+    <script>
+        // Brand Colors Configuration moved to a script block
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rakesh-red': '#8B1E1E',      /* Chili Red */
+                        'rakesh-gold': '#DAA520',     /* Turmeric Gold */
+                        'rakesh-brown': '#4A3B32',    /* Cinnamon/Clove (Kept for backgrounds) */
+                        'rakesh-cream': '#FFF8F0',    /* Background Cream */
+                        'rakesh-green': '#2E594A',    /* Cardamom Green */
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        /* Subtle texture pattern for background sections */
+                        'spice-pattern': "url('https://www.transparenttextures.com/patterns/cubes.png')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF8F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8B1E1E;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6D1616;
+        }
+    </style>
+</head>
+<body class="bg-rakesh-cream text-gray-900 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-rakesh-cream/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-rakesh-red rounded-full flex items-center justify-center text-white">
+                        <i data-lucide="flame" class="w-6 h-6 text-gray-900"></i>
+                    </div>
+                    <span class="font-serif font-bold text-2xl text-rakesh-red tracking-wide">ANMOL <span class="text-rakesh-gold">MASALA</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-900 hover:text-rakesh-red font-medium transition">Home</a>
+                    <a href="#about" class="text-gray-900 hover:text-rakesh-red font-medium transition">Our Story</a>
+                    <a href="./products.html" class="text-gray-900 hover:text-rakesh-red font-medium transition">Shop Masalas</a>
+                    <a href="#contact" class="text-gray-900 hover:text-rakesh-red font-medium transition">Contact</a>
+                    <button  href='' class="bg-rakesh-red text-gray-900 px-6 py-2 border-2 border-transparent font-bold rounded-full hover:bg-white transition transform hover:scale-105 shadow-lg flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-4 h-4"></i><a href="file:///C:/Users/USER/Desktop/rakesh%20masala/product.html"> Shop Now</a> 
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-900 hover:text-rakesh-red focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" onclick="toggleMobileMenu()" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-rakesh-red hover:bg-rakesh-cream rounded-md">Home</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-rakesh-red hover:bg-rakesh-cream rounded-md">Our Story</a>
+                <a href="/products.html" onclick="toggleMobileMenu()" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-rakesh-red hover:bg-rakesh-cream rounded-md">Products</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="block px-3 py-2 text-base font-medium text-gray-900 hover:text-rakesh-red hover:bg-rakesh-cream rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-24 pb-12 lg:pt-32 lg:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Text -->
+                <div class="text-center lg:text-left space-y-6">
+                    <!-- FIX: Missing closing tag for the badge div caused layout issues. I've added it back. -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-rakesh-gold/20 text-gray-900 font-bold text-sm tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-rakesh-red"></span> Since 2020
+                    </div> 
+                    <h1 class="text-5xl lg:text-7xl font-serif font-black text-gray-900 leading-tight">
+                        Unlock the taste of Nepal <br>
+                    </h1>
+                    <p class="text-lg text-gray-600 max-w-lg mx-auto lg:mx-0">
+                        Hand-pounded, sun-dried, and crafted with ancient recipes. Experience the aroma of purity with Rakesh Masala.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <!-- Removed absolute file path for better portability -->
+                        <a href="#products" class="px-8 py-4 border-2 border-gray-900 text-gray-900 font-bold rounded-lg hover:bg-gray-900 hover:text-white transition">
+                            Explore Collection
+                        </a>
+                        <a href="#about" class="px-8 py-4 border-2 border-gray-900 text-gray-900 font-bold rounded-lg hover:bg-gray-900 hover:text-white transition">
+                            Our Process
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="pt-8 flex justify-center lg:justify-start gap-8 border-t border-gray-200 mt-8">
+                        <div>
+                            <p class="text-3xl font-serif font-bold text-rakesh-red">50+</p>
+                            <p class="text-sm text-gray-500">Premium Blends</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-serif font-bold text-rakesh-red">10k+</p>
+                            <p class="text-sm text-gray-500">Happy Chefs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Composition -->
+                <div class="relative">
+                    <!-- Decorative Circles behind -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-rakesh-gold/20 rounded-full blur-3xl -z-10"></div>
+                    
+                    <!-- Main Image Representation -->
+                    <div class="relative z-10">
+                        <img src="Rakesh masala.png" alt="Spices" class="rounded-3xl shadow-2xl mx-auto transform rotate-3 hover:rotate-0 transition duration-500 border-4 border-white">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
+                            <div class="bg-green-100 p-2 rounded-full text-green-700">
+                                <i data-lucide="leaf" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">100% Organic</p>
+                                <p class="text-xs text-gray-500">Certified Sources</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   
+
+    <!-- Product Section - Added light gold background for visual distinction -->
+    <section id="products" class="py-20 bg-rakesh-gold/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-rakesh-red font-bold tracking-widest uppercase text-sm">From Our Kitchen to Yours</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mt-2">Best Selling Masalas</h2>
+                <div class="w-24 h-1 bg-rakesh-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Product Card 1 -->
+                <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-rakesh-gold/50 overflow-hidden">
+                    <div class="relative h-64 bg-gray-100 overflow-hidden">
+                        <div class="absolute top-4 right-4 bg-rakesh-red text-white text-xs font-bold px-3 py-1 rounded-full z-10">Hot Seller</div>
+                        <img src="coriander1.png" alt="Garam Masala" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 font-serif">Coriander Powder</h3>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star-half" class="w-4 h-4 fill-current"></i>
+                                <span class="text-gray-400 ml-1">(4.9)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4 line-clamp-2">A royal blend of spices including cardamom, cinnamon, and cloves.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-rakesh-red"></span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-rakesh-gold/50 overflow-hidden">
+                    <div class="relative h-64 bg-gray-100 overflow-hidden">
+                        <img src="redchilli1.png" alt="Red Chilli" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 font-serif">Red Chilli Powder</h3>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star-half" class="w-4 h-4 fill-current"></i>
+                                <span class="text-gray-400 ml-1">(4.8)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4 line-clamp-2">Vibrant color with mild heat. Perfect for rich gravies.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-rakesh-red"></span>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-rakesh-gold/50 overflow-hidden">
+                    <div class="relative h-64 bg-gray-100 overflow-hidden">
+                         <div class="absolute top-4 right-4 bg-rakesh-gold text-gray-900 text-xs font-bold px-3 py-1 rounded-full z-10">New</div>
+                        <img src="turmeric1.png" alt="Turmeric" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 font-serif">Turmeric Powder</h3>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <span class="text-gray-400 ml-1">(5.0)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4 line-clamp-2">High Curcumin content (7%) for maximum immunity and flavor.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-rakesh-red"></span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Product Card 4 -->
+                 <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-rakesh-gold/50 overflow-hidden">
+                    <div class="relative h-64 bg-gray-100 overflow-hidden">
+                        <img src="kitchenking1.png" alt="Chole Masala" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 font-serif">Kitchen King Masala</h3>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star-half" class="w-4 h-4 fill-current text-gray-400"></i>
+                                <span class="text-gray-400 ml-1">(4.7)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4 line-clamp-2">Authentic Amritsari taste for your chickpeas.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-rakesh-red"></span>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Product Card 5 -->
+                 <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-rakesh-gold/50 overflow-hidden">
+                    <div class="relative h-64 bg-gray-100 overflow-hidden">
+                        <img src="garammasala2.png" alt="Coriander" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 font-serif">Garam Masala</h3>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star-half" class="w-4 h-4 fill-current text-gray-400"></i>
+                                <span class="text-gray-400 ml-1">(4.6)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4 line-clamp-2">Freshly with a lemony citrus flavor.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-rakesh-red"></span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 (Bulk Orders) - Updated with strong border and black text -->
+                <div class="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 border-2 border-gray-900 overflow-hidden">
+                    <div class="relative h-64 bg-gray-100 overflow-hidden flex items-center justify-center bg-orange-100">
+                         <div class="text-center p-4">
+                             <h4 class="text-2xl font-serif text-rakesh-red mb-2">Bulk Orders?</h4>
+                             <p class="text-sm text-gray-900 mb-4">Get special rates for restaurants and events.</p>
+                             <a href="#contact" class="inline-block border-2 border-gray-900 text-gray-900 px-4 py-2 rounded-full hover:bg-rakesh-red hover:text-white transition">Contact Us</a>
+                         </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-transparent border-2 border-rakesh-red text-rakesh-red font-bold py-3 px-8 rounded-full hover:bg-rakesh-red hover:text-gray-900 transition duration-300">
+         
+                     <a href="/product.html"> View Full Catalogue</a>  
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Story Section - Added subtle texture pattern -->
+    <section id="about" class="py-20 bg-rakesh-cream bg-spice-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                     <div class="absolute -top-4 -left-4 w-24 h-24 bg-rakesh-gold opacity-20 rounded-full"></div>
+                     <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-rakesh-red opacity-10 rounded-full"></div>
+                    <img src="local.png" alt="Grinding Spices" class="rounded-lg shadow-xl w-full relative z-10">
+                </div>
+                <div>
+                    <span class="text-rakesh-red font-bold uppercase tracking-widest text-sm">Our Heritage</span>
+                    <h2 class="text-4xl font-serif font-bold text-gray-900 mt-2 mb-6">Preserving the Art of Spices</h2>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        At Rakesh Masala, we believe that masala is not just an ingredient; it's an emotion. Founded in 1985 in a small market in Delhi, we have stuck to our roots.
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        We source our raw spices directly from farmers, dry them under natural sunlight, and use traditional cool-grinding technology (LTG) to ensure the volatile oils—which give the spice its aroma—are perfectly preserved.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                         <div class="flex items-center gap-3">
+                             <div class="bg-white p-2 rounded-full shadow-sm text-rakesh-red"><i data-lucide="check" class="w-4 h-4"></i></div>
+                             <span class="font-bold text-gray-900">Ethically Sourced</span>
+                         </div>
+                         <div class="flex items-center gap-3">
+                            <div class="bg-white p-2 rounded-full shadow-sm text-rakesh-red"><i data-lucide="check" class="w-4 h-4"></i></div>
+                            <span class="font-bold text-gray-900">Lab Tested</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="bg-white p-2 rounded-full shadow-sm text-rakesh-red"><i data-lucide="check" class="w-4 h-4"></i></div>
+                            <span class="font-bold text-gray-900">Hygienic Packing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Contact & Footer -->
+    <section id="contact" class="bg-rakesh-brown pt-20 pb-10 text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 mb-16 border-b border-gray-700 pb-12">
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-3xl font-serif text-gray-900 mb-6">Get In Touch</h2>
+                    <p class="mb-8 text-gray-900">Have a question about our products or want to become a distributor? Send us a message.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-rakesh-gold mt-1"></i>
+                            <div>
+                                <p class="text-gray-900 font-bold">Factory Address</p>
+                                <p class= 'text-black' >Sarmujwa 8 Bankul Bazar Rautahat,<br>Nepal</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="phone" class="w-6 h-6 text-rakesh-gold"></i>
+                            <div>
+                                <p class="text-gray-900 font-bold">Phone</p>
+                                <p class= 'text-black' >+977 9845162898  +977 9766132480 </p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <i data-lucide="mail" class="w-6 h-6 text-rakesh-gold"></i>
+                            <div>
+                                <p class="text-gray-900 font-bold">Email</p>
+                                <p class= 'text-black'>Rakeshmasalaudhyog@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simple Form -->
+                <form class="bg-white/6 p-4 rounded-2xl backdrop-blur-sm" onsubmit="event.preventDefault(); addToCart('Message');">
+
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdAy2ABZk75K4zrs6SdrI4ODHiiHOjpFMW2D50R0ksOzZ9s8w/viewform?embedded=true" width="350" height="420" frameborder="2px" marginheight="0" marginwidth="0">Loading…</iframe>
+
+                    
+                </form>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-2">
+                <div class="flex items-center gap-2">
+                    <span class="font-serif font-bold text-xl text-white">ANMOL <span class="text-rakesh-gold">MASALA</span></span>
+                </div>
+                <div class="text-sm">
+                    &copy; 2024 Rakesh Masala Pvt Ltd. All rights reserved.
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-rakesh-gold transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-rakesh-gold transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="hover:text-rakesh-gold transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Add to Cart / General Notification Simulation
+        function addToCart(productName) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            const toastTitle = toast.querySelector('.font-bold');
+
+            if (productName === 'Message') {
+                toastTitle.innerText = 'Message Sent!';
+                toastMsg.innerText = 'Thank you! We will contact you soon.';
+            } else {
+                toastTitle.innerText = 'Added to Cart';
+                toastMsg.innerText = `${productName} has been added.`;
+            }
+            
+            // Show toast
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            // Hide after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                // Use a standard Tailwind class for the replacement as rakesh-cream/90 is already a class
+                nav.classList.replace('bg-rakesh-cream/90', 'bg-white/95'); 
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.replace('bg-white/95', 'bg-rakesh-cream/90');
+            }
+        });
+    </script>
+</body>
+</html>
